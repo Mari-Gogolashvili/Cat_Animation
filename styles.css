@@ -1,0 +1,523 @@
+/** @format */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #fbfbfb;
+  --body: #e2e2e2;
+  --shade: #f7b0b0;
+  --dark: #282828;
+  --oval: rgb(71, 71, 71);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(94, 79, 119);
+}
+
+.container {
+  width: 750px;
+  height: 750px;
+  filter: drop-shadow(20px 5px 5px rgb(57, 50, 62));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: containerMove 3s infinite linear;
+}
+/** <Face> */
+.face {
+  width: 400px;
+  height: 300px;
+  position: relative;
+  background-color: var(--body);
+  border-radius: 240px 240px 100px 100px;
+}
+.ears {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+.ear {
+  width: 100px;
+  height: 200px;
+  background-color: rgb(64, 64, 64);
+  mix-blend-mode:lighten;
+  position: absolute;
+  top: -30px;
+}
+
+.ear1 {
+  right: 55px;
+  border-radius: 200px 300px 0 0;
+  transform: rotate(45deg);
+  
+}
+.ear2 {
+  left: 55px;
+  border-radius: 300px 200px 0 0;
+  transform: rotate(-45deg);
+}
+
+.ear:before {
+  content: "";
+  background-color: var(--shade);
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  border-radius: 300px 200px 0 0;
+  box-shadow: 0 0 75px var(--shade);
+}
+
+.ear1:before {
+  right: 40px;
+  top: 30px;
+  transform: rotate(-5deg);
+}
+.ear2:before {
+  left: 40px;
+  top: 30px;
+  transform: rotate(5deg);
+}
+.eyes,
+.blushes {
+  display: flex;
+  justify-content: space-around;
+}
+.ovals {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.oval {
+  position: absolute;
+  width: 100px;
+  height: 220px;
+  background: var(--oval);
+  border-radius: 100px / 220px;
+  top: -12px;
+}
+.oval1 {
+  left: 38px;
+  transform: rotate(41deg);
+}
+.oval2 {
+  right: 38px;
+  transform: rotate(-41deg);
+}
+
+.eye {
+  width: 75px;
+  height: 75px;
+  background-color: var(--dark);
+  position: relative;
+  top: 100px;
+  border-radius: 100px;
+}
+
+.eye:before {
+  content: "";
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  background-color: var(--primary);
+  border-radius: 100px;
+  animation: eye 3s infinite;
+}
+
+.eye:after {
+  content: "";
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  background-color: var(--primary);
+  border-radius: 100px;
+  animation: eye 3s infinite;
+}
+
+.eye1:before {
+  top: 10px;
+  right: 15px;
+}
+.eye1:after {
+  bottom: 15px;
+  left: 25px;
+}
+
+.eye2:before {
+  top: 10px;
+  left: 15px;
+}
+.eye2:after {
+  bottom: 15px;
+  right: 25px;
+}
+
+.nose {
+  width: 25px;
+  height: 15px;
+  background-color: var(--dark);
+  position: absolute;
+  top: 180px;
+  left: 188px;
+  border-radius: 80px 80px 150px 150px;
+  z-index: 333;
+}
+
+.lips {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 120px;
+}
+
+.lip {
+  width: 35px;
+  height: 15px;
+  border: 5px solid var(--dark);
+  border-top: none;
+  border-radius: 0 0 150px 150px;
+  z-index: 3;
+  background-color: var(--body);
+}
+
+.lip1 {
+  transform: translateX(6px) rotate(-20deg);
+}
+.lip2 {
+  transform: translateX(-6px) rotate(20deg);
+}
+
+.tongue {
+  width: 36px;
+  height: 20px;
+  background-color: var(--shade);
+  position: absolute;
+  top: 6px;
+  border-radius: 50%;
+  animation: tongueMove 3s linear infinite;
+}
+.blush {
+  width: 45px;
+  height: 45px;
+  background-color: var(--shade);
+  position: relative;
+  top: 100px;
+  border-radius: 100%;
+  z-index: 10;
+}
+
+.blush1 {
+  right: 45px;
+}
+.blush2 {
+  left: 45px;
+}
+
+.mustache {
+  width: 50px;
+  height: 5px;
+  margin: 5px;
+  position: absolute;
+  border-radius: 50px;
+  background-color: var(--oval);
+  border: 0.5px solid var(--body);
+}
+.mustache1 {
+  bottom: 100px;
+  right: -30px;
+  animation: mustacheMove1 3s linear infinite;
+}
+.mustache2 {
+  bottom: 72.5px;
+  right: -30px;
+  animation: mustacheMove2 3s linear infinite;
+}
+.mustache3 {
+  bottom: 45px;
+  right: -20px;
+
+  animation: mustacheMove3 3s linear infinite;
+}
+.mustache4 {
+  bottom: 100px;
+  left: -30px;
+  animation: mustacheMove4 3s linear infinite;
+}
+.mustache5 {
+  bottom: 72.5px;
+  left: -30px;
+  animation: mustacheMove5 3s linear infinite;
+}
+.mustache6 {
+  bottom: 45px;
+  left: -20px;
+  animation: mustacheMove6 3s linear infinite;
+}
+
+/** </Face> */
+/** <Body> */
+
+.body {
+  width: 300px;
+  height: 200px;
+  background-color: var(--body);
+  margin-top: -30px;
+  border-radius: 200px 200px 150px 150px;
+}
+
+.hands,
+.legs {
+  display: flex;
+  justify-content: space-around;
+}
+
+.hand {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  top: 70px;
+  border-radius: 0 0 150px 150px;
+  border: 5px solid var(--dark);
+  border-top: none;
+}
+
+.left-hand {
+  transform: rotate(-35deg);
+  animation: leftHandMove 3s linear infinite;
+}
+.right-hand {
+  transform: rotate(35deg);
+  animation: rightHandMove 3s linear infinite;
+}
+
+.hand-plam {
+  background-color: var(--oval);
+  width: 100%;
+  height: 25px;
+  position: absolute;
+  bottom: -2px;
+  border-radius: 0 0 150px 150px;
+}
+
+/** </Body> */
+/** <Legs> */
+
+.leg {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  background-color: var(--body);
+  border-top: none;
+  border-radius: 0 0 150px 150px;
+  animation: legsMove 3s linear infinite;
+}
+
+.left-leg {
+  margin-right: 20px;
+}
+.right-leg {
+  margin-left: 20px;
+}
+
+/** </Legs> */
+
+/** <Tail> */
+
+.tail {
+  width: 180px;
+  height: 80px;
+  position: absolute;
+  right: 170px;
+  bottom: 240px;
+  border-radius: 50%;
+  box-shadow: 30px 15px 0 0 var(--oval);
+  animation: tailMove 3s linear infinite;
+  z-index: -1;
+}
+
+/** </Tail> */
+
+/** <Keyframes>  */
+@keyframes containerMove {
+  0%,
+  100% {
+    transform: translateY(50px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+@keyframes eye {
+  0%,
+  100% {
+    opacity: 70%;
+    scale: 0.9;
+  }
+  50% {
+    opacity: 100%;
+    scale: 1;
+  }
+}
+@keyframes tongueMove {
+  0%,
+  100% {
+    top: -3px;
+  }
+  50% {
+    top: 10px;
+  }
+}
+
+@keyframes mustacheMove1 {
+  0%,
+  100% {
+    transform: rotate(-35deg);
+    transform-origin: left;
+  }
+  25%,
+  75% {
+    transform: rotate(-15deg);
+    transform-origin: left;
+  }
+  50% {
+    transform: rotate(0deg);
+    transform-origin: left;
+  }
+}
+@keyframes mustacheMove2 {
+  0%,
+  100% {
+    transform: rotate(-15deg);
+    transform-origin: left;
+  }
+  25%,
+  75% {
+    transform: rotate(5deg);
+    transform-origin: left;
+  }
+  50% {
+    transform: rotate(25deg);
+    transform-origin: left;
+  }
+}
+@keyframes mustacheMove3 {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: left;
+  }
+  25%,
+  75% {
+    transform: rotate(35deg);
+    transform-origin: left;
+  }
+  50% {
+    transform: rotate(55deg);
+    transform-origin: left;
+  }
+}
+
+@keyframes mustacheMove4 {
+  0% {
+    transform: rotate(35deg);
+    transform-origin: right;
+  }
+  25% {
+    transform: rotate(15deg);
+    transform-origin: right;
+  }
+  50% {
+    transform: rotate(0deg);
+    transform-origin: right;
+  }
+
+  75% {
+    transform: rotate(15deg);
+    transform-origin: right;
+  }
+  100% {
+    transform: rotate(35deg);
+    transform-origin: right;
+  }
+}
+@keyframes mustacheMove5 {
+  0%,
+  100% {
+    transform: rotate(15deg);
+    transform-origin: right;
+  }
+  25%,
+  75% {
+    transform: rotate(-5deg);
+    transform-origin: right;
+  }
+  50% {
+    transform: rotate(-25deg);
+    transform-origin: right;
+  }
+}
+@keyframes mustacheMove6 {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: right;
+  }
+  25%,
+  75% {
+    transform: rotate(-35deg);
+    transform-origin: right;
+  }
+  50% {
+    transform: rotate(-55deg);
+    transform-origin: right;
+  }
+}
+@keyframes leftHandMove {
+  0%,
+  100% {
+    transform: rotate(-35deg);
+  }
+  50% {
+    transform: rotate(-55deg);
+  }
+}
+@keyframes rightHandMove {
+  0%,
+  100% {
+    transform: rotate(35deg);
+  }
+  50% {
+    transform: rotate(55deg);
+  }
+}
+@keyframes tailMove {
+  0%,
+  100% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+
+@keyframes legsMove {
+  0%,
+  100% {
+    margin-top: -25px;
+  }
+  50% {
+    margin-top: -10px;
+  }
+}
+
+/** </Keyframes>  */
